@@ -1,0 +1,19 @@
+###==== BEGIN Header
+
+# Synopsys, Inc. constraint file
+# /home/corecode/devel/electronics/fpga-vga/xo2/xo2.fdc
+# Written on Sun Jun 12 16:08:38 2016
+# by Synplify Pro, K-2015.09L-2 FDC Constraint Editor
+
+# Custom constraint commands may be added outside of the SCOPE tab sections bounded with BEGIN/END.
+# These sections are generated from SCOPE spreadsheet tabs.
+
+###==== END Header
+
+
+
+###==== BEGIN Clocks - (Populated from tab in SCOPE, do not edit)
+create_clock  {n:platform.clk} -period {41.3565}
+
+###==== END Clocks
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="fpgavga" device="LCMXO2-7000HE-4TG144C" default_implementation="xo2">
+    <Options/>
+    <Implementation title="xo2" dir="xo2" description="xo2" synthesis="synplify" default_strategy="Strategy1">
+        <Options top="top"/>
+        <Source name="rtl/top.sv" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="rtl/vga_sync_gen.sv" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="rtl/machxo2/platform.sv" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="rtl/por.sv" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
+        <Source name="xo2/xo2.fdc" type="Synplify Design Constraints File" type_short="SDC">
+            <Options/>
+        </Source>
+        <Source name="xo2/xo2.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="xo2/xo2.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="fpgavga1.sty"/>
+</BaliProject>
