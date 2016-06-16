@@ -7,6 +7,7 @@ module vga_sync_gen_tb;
    logic sync;
    logic active;
    logic cycle;
+   logic [3:0] counter;
 
 vga_sync_gen #(.frontporch_len(3),
                .sync_len(2),
