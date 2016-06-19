@@ -19,18 +19,19 @@
 				<BScanLen>1</BScanLen>
 				<BScanVal>0</BScanVal>
 			</Bypass>
-			<File>/home/corecode/devel/electronics/fpga-vga/xo2/fpgavga_xo2.bit</File>
-			<FileTime>06/12/16 03:06:38</FileTime>
-			<JedecChecksum>N/A</JedecChecksum>
-			<Operation>SRAM Fast Program</Operation>
+			<File>/home/corecode/devel/electronics/fpga-vga/xo2/fpgavga_xo2.jed</File>
+			<FileTime>06/19/16 02:52:05</FileTime>
+			<JedecChecksum>0x9041</JedecChecksum>
+			<Operation>FLASH Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
 				<IOState>HighZ</IOState>
 				<PreloadLength>664</PreloadLength>
 				<IOVectorData>0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</IOVectorData>
 				<TCKFrequency>1.000000 MHz</TCKFrequency>
+				<SVFProcessor>SVF Processor</SVFProcessor>
 				<Usercode>0x00000000</Usercode>
-				<AccessMode>SRAM</AccessMode>
+				<AccessMode>FLASH</AccessMode>
 			</Option>
 		</Device>
 	</Chain>

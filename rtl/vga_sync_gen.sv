@@ -8,17 +8,18 @@ module vga_sync_gen
     localparam total_len_bit = $clog2(total_len)
     )
 (
- input clk,
- input enable,
- output logic sync,
- output logic active,
- output logic cycle,
- output logic [total_len_bit-1:0] counter = 0
+ input                            clk,
+ input                            rst,
+ input                            enable,
+ output logic                     sync,
+ output logic                     active,
+ output logic                     cycle,
+ output logic [total_len_bit-1:0] counter
  );
 
 
    logic [total_len_bit-1:0] counter_next;
-   logic [total_len_bit-1:0] compare  = 0;
+   logic [total_len_bit-1:0] compare;
 
    wire                      compare_match;
 
@@ -27,7 +28,7 @@ module vga_sync_gen
          FRONTPORCH,
          SYNC,
          BACKPORCH
-         } state = FRONTPORCH, state_next;
+         } state, state_next;
 
 assign compare_match = counter == compare;
 
@@ -58,24 +59,18 @@ always_comb
     counter_next  = counter + 1;
 
 always_ff @(posedge clk)
-  if (enable && compare_match)
-    state   <= state_next;
-
-always_ff @(posedge clk)
-  if (enable)
-    sync <= state == SYNC;
-
-always_ff @(posedge clk)
-  if (enable)
-    active <= state == ACTIVE;
-
-always_ff @(posedge clk)
-  if (enable)
-    cycle <= state == ACTIVE && compare_match;
-
-always_ff @(posedge clk)
-  if (enable)
-    counter <= counter_next;
-
+  if (rst) begin
+     state   <= FRONTPORCH;
+     sync    <= '0;
+     active  <= '0;
+     cycle   <= '0;
+     counter <= 0;
+  end else if (enable) begin
+     if (compare_match) state <= state_next;
+     sync                     <= state == SYNC;
+     active                   <= state == ACTIVE;
+     cycle                    <= state == ACTIVE && compare_match;
+     counter                  <= counter_next;
+  end
 
 endmodule

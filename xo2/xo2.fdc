@@ -13,7 +13,7 @@
 
 
 ###==== BEGIN Clocks - (Populated from tab in SCOPE, do not edit)
-create_clock  {n:platform.clk} -period {41.3565}
+create_clock  {n:platform.clk} -period {39.722}
 
 ###==== END Clocks
 

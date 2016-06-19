@@ -1,25 +1,33 @@
 module platform
+  #(
+    use_pll = 0
+    )
   (
-   output logic clk,
-   output logic rst
+   output clk,
+   output rst
    );
 
+generate
+   if (use_pll == 0) begin
+      OSCH #(.NOM_FREQ("24.18"))
+      OSCH_inst(.STDBY(1'b0),
+                .OSC(clk),
+                .SEDSTDBY());
+   end else begin
+      wire         osc_clk;
 
-defparam OSCH_inst.NOM_FREQ = "24.18";
-OSCH OSCH_inst(.STDBY(1'b0),
-               .OSC(clk),
-               .SEDSTDBY());
+      OSCH #(.NOM_FREQ("7.00"))
+      OSCH_inst(.STDBY(1'b0),
+                .OSC(osc_clk),
+                .SEDSTDBY());
+      pll PLL_inst(.CLKI(osc_clk),
+                   .CLKOP(),
+                   .CLKOS(clk));
+   end
+endgenerate
 
-
-   logic        rst_n;
-
-defparam por_i.cycles = 1;
-por por_i(.por(rst_n),
-          .clk(clk));
-
-assign rst = ~rst_n;
-
-GSR GSR_INST(.GSR(rst_n));
-PUR PUR_INST(.PUR(rst_n));
+por #(.cycles(3))
+por_i(.por(rst),
+      .clk(clk));
 
 endmodule

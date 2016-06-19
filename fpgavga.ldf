@@ -15,6 +15,9 @@
         <Source name="rtl/por.sv" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
+        <Source name="rtl/machxo2/pll.v" type="Verilog" type_short="Verilog">
+            <Options/>
+        </Source>
         <Source name="xo2/xo2.fdc" type="Synplify Design Constraints File" type_short="SDC">
             <Options/>
         </Source>
